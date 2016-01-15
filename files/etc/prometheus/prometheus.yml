@@ -24,6 +24,9 @@ scrape_configs:
     scrape_interval: 5s
     scrape_timeout: 10s
 
+    file_sd_configs:
+      - names: ['/etc/prometheus/tgroups/*.yml']
+
     target_groups:
       # this is automatically populated by confd by reading data from Swarm's consul
       - targets: [ 'localhost:9090']

@@ -1,0 +1,10 @@
+# this is automatically populated by confd by reading data from Swarm's consul
+{{/* we get away with this because Swarm is always in port 2376, so we can just replace it with the cAdvisor's port */}}
+- targets: [ {{range ls "docker/nodes"}}'{{.Value | replaceAll ":2376" ":8080"}}',{{end}}'localhost:9090']
+  labels:
+    group: 'cadvisor'
+
+# DEBUG 
+#{{range ls "docker/nodes"}}
+#    {{.Value | replaceAll ":2376" ":8080"}}
+#{{end}}

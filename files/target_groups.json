@@ -1,0 +1,4 @@
+template {
+  source = "/target_groups.ctmpl"
+  destination = "/etc/prometheus/tgroups/target_groups.yml"
+}
